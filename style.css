@@ -90,7 +90,7 @@ h2 {
   cursor: pointer;
 }
 
-@media (min-width: 45em) {
+@media (max-width: 45em) {
   .color-switch {
     width: 3.5em;
     height: 1.5em;
