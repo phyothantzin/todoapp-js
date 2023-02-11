@@ -284,6 +284,7 @@ input:checked ~ .bubble::after {
   font-size: 1em;
   color: var(--color-grey);
   margin-right: 0.3em;
+  padding-top: 1em;
   background: none;
   border: none;
   resize: none;
@@ -295,8 +296,12 @@ input:checked ~ .bubble::after {
 }
 
 @media screen and (min-width: 45em) {
+  #todo-list .todo {
+    align-items: center;
+  }
+
   .todo-content textarea {
-    padding-top: 1em;
+    padding-top: 1.3em;
     font-size: 1.1em;
   }
 
@@ -312,7 +317,7 @@ input:checked ~ .bubble::after {
   height: 2.5em;
   /* margin-top: 0.5em; */
   font-size: 0.8em;
-  /* padding: 0 1.2em; */
+  padding: 0 1em;
   border-radius: 0.3em;
   font-weight: 600;
   cursor: pointer;

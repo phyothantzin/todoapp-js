@@ -65,7 +65,7 @@ function displayTodos() {
   todos.forEach((todo) => {
     const todoDiv = document.createElement('div')
     const checkbox = document.createElement('button')
-    // const edit = document.createElement('button')
+    const edit = document.createElement('button')
     const deleteButton = document.createElement('button')
     const todoContent = document.createElement('div')
 
@@ -82,10 +82,10 @@ function displayTodos() {
     todoDiv.classList.add('todo')
     checkbox.classList.add('checkbox')
     todoContent.classList.add('todo-content')
-    // edit.classList.add('edit')
+    edit.classList.add('edit')
     deleteButton.classList.add('delete')
 
-    // edit.innerText = '✔'
+    edit.innerText = 'Edit'
     deleteButton.innerText = 'Delete'
     checkbox.innerText = '✔'
     todoContent.innerHTML = `<textarea readonly>${todo.content}</textarea>`
@@ -93,9 +93,9 @@ function displayTodos() {
     //displaying todo list
 
     todoList.appendChild(todoDiv)
-    todoDiv.appendChild(todoContent)
-    // todoDiv.appendChild(edit)
     todoDiv.appendChild(checkbox)
+    todoDiv.appendChild(todoContent)
+    todoDiv.appendChild(edit)
     todoDiv.appendChild(deleteButton)
 
     checkbox.addEventListener('click', (e) => {
@@ -110,21 +110,21 @@ function displayTodos() {
       displayTodos()
     })
 
-    // edit.addEventListener('click', (e) => {
-    //   const input = document.querySelector('textarea')
+    edit.addEventListener('click', (e) => {
+      const input = todoContent.querySelector('textarea')
 
-    //   input.removeAttribute('readonly')
-    //   input.focus()
+      input.removeAttribute('readonly')
+      input.focus()
 
-    //   input.addEventListener('blur', (e) => {
-    //     input.setAttribute('readonly', true)
-    //     todo.content = e.target.value
+      input.addEventListener('blur', (e) => {
+        input.setAttribute('readonly', true)
+        todo.content = e.target.value
 
-    //     localStorage.setItem('todos', JSON.stringify(todos))
+        localStorage.setItem('todos', JSON.stringify(todos))
 
-    //     displayTodos()
-    //   })
-    // })
+        displayTodos()
+      })
+    })
 
     deleteButton.addEventListener('click', (e) => {
       todos = todos.filter((t) => t != todo)
