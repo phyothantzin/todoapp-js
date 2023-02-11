@@ -1,6 +1,8 @@
 :root {
   --primary-color: #3d1766;
   --secondary-color: #6f1ab6;
+  --business-todo: var(--primary-color);
+  --background-color: linear-gradient(var(--color-grey), var(--header-color));
   --personal: var(--primary-color);
   --business: var(--primary-color);
   --business-glow: 0px 0px 4px rgba(205, 4, 4, 0.75);
@@ -14,12 +16,19 @@
   --font-size: 16px;
 }
 
+.dark-mode {
+  --header-color: #cb54f0;
+  --secondary-color: #3ad899;
+  --business-todo: #42c090;
+  --background-color: #263238;
+}
+
 body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
   box-sizing: border-box;
-  background: linear-gradient(var(--color-grey), var(--header-color));
+  background: var(--background-color);
   font-family: 'Fira Sans', sans-serif;
   font-size: var(--font-size);
 }
@@ -62,6 +71,58 @@ h2 {
   margin: 0;
   margin-bottom: 0.5em;
   color: var(--header-color);
+}
+
+.wrapper-color-switch {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.color-switch {
+  width: 4em;
+  height: 2em;
+  border-radius: 10em;
+  background: var(--color-grey);
+  border: 2px solid var(--header-color);
+  position: absolute;
+  cursor: pointer;
+}
+
+.color-switch-toggle {
+  width: 1.6em;
+  height: 1.6em;
+  background: var(--header-color);
+  position: absolute;
+  border-radius: 10em;
+  top: 0.2em;
+  left: 0.2em;
+  cursor: pointer;
+  transition: all 250ms ease-in-out;
+}
+
+.color-switch::before {
+  content: 'Light Mode On';
+  position: absolute;
+  display: inline-block;
+  width: 12em;
+  left: -8em;
+  top: 0.4em;
+  color: var(--secondary-color);
+}
+
+#input-color-switch:checked ~ label .color-switch-toggle {
+  transform: translatex(2em);
+}
+
+#input-color-switch:checked ~ .color-switch::before {
+  content: 'Dark Mode On';
+  color: var(--color-grey);
+}
+
+#input-color-switch {
+  display: none;
 }
 
 #addtodo-form input[type='text'] {
@@ -162,7 +223,7 @@ input:checked ~ .bubble::after {
 
 #addtodo-btn {
   font-size: 1em;
-  margin-top: 0.5em;
+  margin-top: 0.8em;
   background: var(--primary-color);
   padding: 0.8em;
   color: var(--color-grey);
@@ -190,7 +251,7 @@ input:checked ~ .bubble::after {
 }
 
 .business-todo {
-  background: var(--primary-color);
+  background: var(--business-todo);
 }
 
 .done {
@@ -207,7 +268,9 @@ input:checked ~ .bubble::after {
   margin-bottom: 0.5em;
   border-radius: 0.3em;
   padding: 0.5em 1em;
+  align-items: center;
   justify-content: center;
+  border-radius: 0.5em;
 }
 
 .todo-content {
@@ -241,15 +304,15 @@ input:checked ~ .bubble::after {
     width: 5.5em;
     height: 3em;
     padding: 0.2em 0.5em;
-    margin-top: 1em !important;
+    /* margin-top: 1em !important; */
   }
 }
 
 .todo button {
   height: 2.5em;
-  margin-top: 0.5em;
+  /* margin-top: 0.5em; */
   font-size: 0.8em;
-  padding: 0 1.2em;
+  /* padding: 0 1.2em; */
   border-radius: 0.3em;
   font-weight: 600;
   cursor: pointer;

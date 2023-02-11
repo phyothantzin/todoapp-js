@@ -1,4 +1,11 @@
 window.addEventListener('load', () => {
+  const darkMode = JSON.parse(localStorage.getItem('dark-mode'))
+  const darkModeMaintain = document.getElementById('input-color-switch')
+  if (darkMode) {
+    document.body.classList.add('dark-mode')
+    darkModeMaintain.setAttribute('checked', true)
+  }
+
   todos = JSON.parse(localStorage.getItem('todos')) || []
 
   const nameInput = document.getElementById('name')
@@ -17,6 +24,8 @@ window.addEventListener('load', () => {
     const content = e.target.elements.content.value
     const category = e.target.elements.category.value
 
+    if (content == '') return
+
     const todo = {
       content: content,
       category: category,
@@ -25,7 +34,6 @@ window.addEventListener('load', () => {
     }
 
     todos.push(todo)
-    console.log(todos)
 
     localStorage.setItem('todos', JSON.stringify(todos))
     e.target.reset()
@@ -38,13 +46,26 @@ window.addEventListener('load', () => {
 
 function displayTodos() {
   const todoList = document.getElementById('todolist')
+  const toggleSwitch = document.getElementById('input-color-switch')
+
+  toggleSwitch.addEventListener('click', darkMode)
+
+  function darkMode() {
+    localStorage.setItem('dark-mode', toggleSwitch.checked)
+
+    if (toggleSwitch.checked) {
+      document.body.classList.add('dark-mode')
+    } else {
+      document.body.classList.remove('dark-mode')
+    }
+  }
 
   todoList.innerHTML = ''
 
   todos.forEach((todo) => {
     const todoDiv = document.createElement('div')
     const checkbox = document.createElement('button')
-    const edit = document.createElement('button')
+    // const edit = document.createElement('button')
     const deleteButton = document.createElement('button')
     const todoContent = document.createElement('div')
 
@@ -61,10 +82,10 @@ function displayTodos() {
     todoDiv.classList.add('todo')
     checkbox.classList.add('checkbox')
     todoContent.classList.add('todo-content')
-    edit.classList.add('edit')
+    // edit.classList.add('edit')
     deleteButton.classList.add('delete')
 
-    edit.innerText = 'Edit'
+    // edit.innerText = '✔'
     deleteButton.innerText = 'Delete'
     checkbox.innerText = '✔'
     todoContent.innerHTML = `<textarea readonly>${todo.content}</textarea>`
@@ -72,9 +93,9 @@ function displayTodos() {
     //displaying todo list
 
     todoList.appendChild(todoDiv)
-    todoDiv.appendChild(checkbox)
     todoDiv.appendChild(todoContent)
-    todoDiv.appendChild(edit)
+    // todoDiv.appendChild(edit)
+    todoDiv.appendChild(checkbox)
     todoDiv.appendChild(deleteButton)
 
     checkbox.addEventListener('click', (e) => {
@@ -89,21 +110,21 @@ function displayTodos() {
       displayTodos()
     })
 
-    edit.addEventListener('click', (e) => {
-      const input = document.querySelector('textarea')
+    // edit.addEventListener('click', (e) => {
+    //   const input = document.querySelector('textarea')
 
-      input.removeAttribute('readonly')
-      input.focus()
+    //   input.removeAttribute('readonly')
+    //   input.focus()
 
-      input.addEventListener('blur', (e) => {
-        input.setAttribute('readonly', true)
-        todo.content = e.target.value
+    //   input.addEventListener('blur', (e) => {
+    //     input.setAttribute('readonly', true)
+    //     todo.content = e.target.value
 
-        localStorage.setItem('todos', JSON.stringify(todos))
+    //     localStorage.setItem('todos', JSON.stringify(todos))
 
-        displayTodos()
-      })
-    })
+    //     displayTodos()
+    //   })
+    // })
 
     deleteButton.addEventListener('click', (e) => {
       todos = todos.filter((t) => t != todo)
