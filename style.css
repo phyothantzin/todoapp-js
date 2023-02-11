@@ -90,6 +90,25 @@ h2 {
   cursor: pointer;
 }
 
+@media (min-width: 45em) {
+  .color-switch {
+    width: 3.5em;
+    height: 1.5em;
+  }
+  
+  .color-switch-toggle {
+    width: 1.2em;
+    height: 1.2em;
+  }
+
+  .color-switch::before, 
+  .color-switch::after {
+    width: 8em;
+    font-size: 1.2em;
+  }
+  
+}
+
 .color-switch-toggle {
   width: 1.6em;
   height: 1.6em;
