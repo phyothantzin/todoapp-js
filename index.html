@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+    <title>TODO APP - LocalStorage 2023</title>
+  </head>
+  <body>
+    <main>
+      <!-- header section -->
+      <section class="header">
+        <h2 class="greet">
+          Hello,
+          <input type="text" name="name" id="name" placeholder="Your Name" />
+        </h2>
+      </section>
+      <!-- end of header section -->
+
+      <!-- add todo section -->
+      <section class="addtodo">
+        <form id="addtodo-form">
+          <h4>Add Todo</h4>
+          <input
+            type="text"
+            id="addtodo-input"
+            name="content"
+            placeholder="e.g. Learn Javascript"
+          />
+
+          <h4>Pick Your Category</h4>
+
+          <div class="catagory-container">
+            <label class="business catagory1">
+              <input type="radio" name="category" value="business" />
+              <div class="bubble business"></div>
+              <span>Business</span>
+            </label>
+
+            <label class="personal catagory2">
+              <input type="radio" name="category" value="personal" />
+              <div class="bubble personal"></div>
+              <span>Personal</span>
+            </label>
+          </div>
+
+          <input type="submit" value="Add" id="addtodo-btn" />
+        </form>
+      </section>
+      <!-- end of add todo section -->
+
+      <!-- todo list section -->
+      <section class="todolist-section">
+        <h3>Todo List</h3>
+        <div id="todolist">
+          <!-- <div class="todo personal-todo">
+            <button class="checkbox">✔</button>
+            <div class="todo-content">
+              <textarea readonly></textarea>
+            </div>
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+          </div>
+
+          <div class="todo business-todo">
+            <button class="checkbox">✔</button>
+            <div class="todo-content">
+              <textarea>
+another example todo task with the javascript </textarea
+              >
+            </div>
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+          </div> -->
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
