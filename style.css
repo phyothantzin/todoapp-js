@@ -320,7 +320,7 @@ input:checked ~ .bubble::after {
 
 .todo-content textarea {
   flex: 1 1 0%;
-  font-size: 1.1em;
+  font-size: 1em;
   color: var(--color-grey);
   margin-right: 0.3em;
   padding-top: 1em;
@@ -341,7 +341,7 @@ input:checked ~ .bubble::after {
 
   .todo-content textarea {
     padding-top: 1.3em;
-    font-size: 1.1em;
+    font-size: 1.3em;
   }
 
   .todo button {
