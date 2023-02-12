@@ -341,7 +341,7 @@ input:checked ~ .bubble::after {
 
   .todo-content textarea {
     padding-top: 1.3em;
-    font-size: 1.1em;
+    font-size: 1.3em;
   }
 
   .todo button {
