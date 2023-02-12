@@ -31,6 +31,7 @@ body {
   background: var(--background-color);
   font-family: 'Fira Sans', sans-serif;
   font-size: var(--font-size);
+  overflow-x: hidden;
 }
 
 section {
@@ -394,11 +395,11 @@ input:checked ~ .bubble::after {
   .edit,
   .checkbox,
   .delete {
-    font-size: 0.45em !important;
+    font-size: 0.3em !important;
   }
 
   .todo-content textarea {
-    font-size: 0.8em;
+    font-size: 0.5em;
   }
 }
 
