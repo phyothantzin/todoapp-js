@@ -161,7 +161,7 @@ h2 {
 }
 
 #addtodo-form input[type='text'] {
-  width: 93%;
+  width: 88%;
   min-height: 2em;
   background: var(--color-white);
   padding: 0.5em 1em;
@@ -176,6 +176,12 @@ h2 {
   #addtodo-form input[type='text'] {
     min-width: 97%;
     font-size: 1.4em;
+  }
+}
+
+@media screen and (min-width: 49em) {
+  #addtodo-form input[type='text'] {
+    min-width: 95%;
   }
 }
 
@@ -323,7 +329,6 @@ input:checked ~ .bubble::after {
   font-size: 1em;
   color: var(--color-grey);
   margin-right: 0.3em;
-  padding-top: 1em;
   background: none;
   border: none;
   resize: none;
@@ -340,7 +345,7 @@ input:checked ~ .bubble::after {
   }
 
   .todo-content textarea {
-    padding-top: 1.3em;
+    padding-top: 1.1em;
     font-size: 1.3em;
   }
 
@@ -383,4 +388,28 @@ input:checked ~ .bubble::after {
 
 .delete:hover {
   background: #e20a35;
+}
+
+@media (max-width: 340px) {
+  .edit,
+  .checkbox,
+  .delete {
+    font-size: 0.45em !important;
+  }
+
+  .todo-content textarea {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 425px) {
+  .edit,
+  .checkbox,
+  .delete {
+    font-size: 0.6em !important;
+  }
+
+  .todo-content textarea {
+    font-size: 0.9em;
+  }
 }
