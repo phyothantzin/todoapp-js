@@ -89,6 +89,7 @@ h2 {
   justify-content: flex-end;
   align-items: center;
   margin-bottom: 2em;
+  user-select: none;
 }
 
 .color-switch {
@@ -375,6 +376,7 @@ input:checked ~ .bubble::after {
   color: var(--color-grey);
   margin-right: 0.8em;
   box-shadow: var(--shadow);
+  user-select: none;
 }
 
 .edit:hover,
@@ -385,6 +387,7 @@ input:checked ~ .bubble::after {
 .delete {
   background: var(--delete);
   box-shadow: var(--shadow);
+  user-select: none;
 }
 
 .delete:hover {
