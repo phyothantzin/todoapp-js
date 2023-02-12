@@ -1,5 +1,9 @@
 window.addEventListener('load', () => {
   const darkMode = JSON.parse(localStorage.getItem('dark-mode'))
+  // const colorSwitch = document.getElementById('input-color-switch')
+  // colorSwitch.addEventListener('click', () => {
+  //   let clickEffect = new Audio('./soundeffects')
+  // })
   const darkModeMaintain = document.getElementById('input-color-switch')
   if (darkMode) {
     document.body.classList.add('dark-mode')
@@ -12,6 +16,12 @@ window.addEventListener('load', () => {
 
   nameInput.value = localStorage.getItem('name') || ''
 
+  nameInput.addEventListener('keyup', () => {
+    let typeEffect = new Audio('./soundeffects/typewriter.wav')
+    typeEffect.volume = 0.8
+    typeEffect.play()
+  })
+
   nameInput.addEventListener('change', (e) => {
     localStorage.setItem('name', e.target.value)
   })
@@ -23,6 +33,10 @@ window.addEventListener('load', () => {
 
     const content = e.target.elements.content.value
     const category = e.target.elements.category.value
+
+    let addEffect = new Audio('./soundeffects/add.wav')
+    addEffect.volume = 0.25
+    addEffect.play()
 
     if (content == '') return
 
@@ -51,6 +65,9 @@ function displayTodos() {
   toggleSwitch.addEventListener('click', darkMode)
 
   function darkMode() {
+    let click = new Audio('./soundeffects/click2.wav')
+    click.volume = 0.65
+    click.play()
     localStorage.setItem('dark-mode', toggleSwitch.checked)
 
     if (toggleSwitch.checked) {
@@ -106,6 +123,10 @@ function displayTodos() {
       } else {
         todoContent.classList.remove('done')
       }
+
+      const doneEffect = new Audio('./soundeffects/pop.mp3')
+      doneEffect.volume = 0.18
+      doneEffect.play()
       localStorage.setItem('todos', JSON.stringify(todos))
       displayTodos()
     })
@@ -113,12 +134,23 @@ function displayTodos() {
     edit.addEventListener('click', (e) => {
       const input = todoContent.querySelector('textarea')
 
+      let editEffect = new Audio('./soundeffects/click2.wav')
+      editEffect.volume = 0.5
+      editEffect.play()
+
       input.removeAttribute('readonly')
+      let val = todo.content
+      input.innerText = ''
       input.focus()
+      input.value = todo.content
 
       input.addEventListener('blur', (e) => {
         input.setAttribute('readonly', true)
         todo.content = e.target.value
+
+        let editEffect = new Audio('./soundeffects/click2.wav')
+        editEffect.volume = 0.5
+        editEffect.play()
 
         localStorage.setItem('todos', JSON.stringify(todos))
 
@@ -128,6 +160,9 @@ function displayTodos() {
 
     deleteButton.addEventListener('click', (e) => {
       todos = todos.filter((t) => t != todo)
+      let deleteEffect = new Audio('./soundeffects/sweep.wav')
+      deleteEffect.volume = 0.25
+      deleteEffect.play()
 
       localStorage.setItem('todos', JSON.stringify(todos))
       displayTodos()
